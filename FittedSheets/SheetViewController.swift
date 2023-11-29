@@ -227,6 +227,8 @@ public class SheetViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Add a guard statement to prevent unexpected dismiss
+        guard presentedViewController == nil else { return }
         self.updateOrderedSizes()
         self.contentViewController.updatePreferredHeight()
         self.resize(to: self.currentSize, animated: false)
